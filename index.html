@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8B5CF6">
+    <meta name="description" content="Magazyn StolMar - Zarządzanie materiałami ABS">
+    <title>StolMar Magazyn</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%238B5CF6' width='192' height='192'/><text x='50%' y='50%' font-size='100' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'>S</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <h1>📦 StolMar Magazyn</h1>
+            <button id="adminBtn" class="admin-btn" title="Panel admina">⚙️</button>
+        </div>
+    </header>
+
+    <!-- ADMIN PANEL -->
+    <div id="adminPanel" class="admin-panel hidden">
+        <div class="admin-content">
+            <button id="closeAdminBtn" class="close-btn">✕</button>
+            <h2>Panel Administratora</h2>
+            <button id="exportBtn" class="admin-btn-action">📥 Eksportuj dane (JSON)</button>
+            <button id="clearBtn" class="admin-btn-action delete-btn">🗑️ Wyczyść wszystkie dane</button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <!-- LISTA VIEW -->
+        <div id="listaView" class="view active">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="🔍 Szukaj materiału..."
+                >
+            </div>
+            <div id="materialsList" class="materials-list"></div>
+        </div>
+
+        <!-- DODAJ VIEW -->
+        <div id="dodajView" class="view">
+            <form id="addForm" class="add-form">
+                <h2>Dodaj nowy materiał</h2>
+                
+                <label>
+                    <span>Nazwa materiału *</span>
+                    <input 
+                        type="text" 
+                        id="nazwa" 
+                        placeholder="np. Czarny ABS" 
+                        required
+                    >
+                </label>
+
+                <label>
+                    <span>Kod materiału *</span>
+                    <input 
+                        type="text" 
+                        id="kod" 
+                        placeholder="np. ABS-001" 
+                        required
+                    >
+                </label>
+
+                <label>
+                    <span>Typ *</span>
+                    <select id="typ" required>
+                        <option value="">-- Wybierz typ --</option>
+                        <option value="ABS">ABS</option>
+                        <option value="Płyty">Płyty</option>
+                        <option value="Inne">Inne</option>
+                    </select>
+                </label>
+
+                <label>
+                    <span>Ilość (mb) *</span>
+                    <input 
+                        type="number" 
+                        id="ilosc" 
+                        placeholder="np. 100" 
+                        required
+                        min="0"
+                    >
+                </label>
+
+                <button type="submit" class="submit-btn">➕ Dodaj materiał</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+        <button class="nav-btn active" data-view="listaView">📋 Lista</button>
+        <button class="nav-btn" data-view="dodajView">➕ Dodaj</button>
+    </nav>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('✅ SW registered:', reg.scope))
+                .catch(err => console.log('❌ SW error:', err));
+        }
+    </script>
+</body>
+</html>
