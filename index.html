@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#8B5CF6">
-    <meta name="description" content="Magazyn StolMar - Zarządzanie materiałami ABS">
+    <meta name="description" content="Magazyn StolMar - Zarządzanie materiałami ABS i Płytami">
     <title>StolMar Magazyn</title>
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%238B5CF6' width='192' height='192'/><text x='50%' y='50%' font-size='100' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'>S</text></svg>">
@@ -41,7 +41,24 @@
                     placeholder="🔍 Szukaj materiału..."
                 >
             </div>
-            <div id="materialsList" class="materials-list"></div>
+
+            <!-- ABS SECTION -->
+            <section class="category-section">
+                <h2 class="category-title">📏 ABS (mb)</h2>
+                <div id="absList" class="materials-list abs-list"></div>
+            </section>
+
+            <!-- PŁYTY SECTION -->
+            <section class="category-section">
+                <h2 class="category-title">📦 Płyty (szt)</h2>
+                <div id="plytyList" class="materials-list plyty-list"></div>
+            </section>
+
+            <!-- INNE SECTION -->
+            <section class="category-section">
+                <h2 class="category-title">🔧 Inne</h2>
+                <div id="inneLst" class="materials-list inne-list"></div>
+            </section>
         </div>
 
         <!-- DODAJ VIEW -->
@@ -73,14 +90,14 @@
                     <span>Typ *</span>
                     <select id="typ" required>
                         <option value="">-- Wybierz typ --</option>
-                        <option value="ABS">ABS</option>
-                        <option value="Płyty">Płyty</option>
+                        <option value="ABS">ABS (mb)</option>
+                        <option value="Płyty">Płyty (szt)</option>
                         <option value="Inne">Inne</option>
                     </select>
                 </label>
 
                 <label>
-                    <span>Ilość (mb) *</span>
+                    <span>Ilość *</span>
                     <input 
                         type="number" 
                         id="ilosc" 
