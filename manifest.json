@@ -1,0 +1,20 @@
+{
+  "name": "StolMar Magazyn",
+  "short_name": "Magazyn",
+  "description": "Zarządzanie materiałami Egger ABS",
+  "start_url": "/magazyn-stolmar/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8B5CF6",
+  "scope": "/magazyn-stolmar/",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%238B5CF6' width='192' height='192'/><text x='50%' y='50%' font-size='100' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'>S</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["productivity"],
+  "orientation": "portrait-primary"
+}
